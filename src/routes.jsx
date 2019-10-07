@@ -29,6 +29,7 @@ import RMATLAB from 'bundle-loader?lazy!babel-loader!./pages/staticPages/rmatlab
 import Tutorials from 'bundle-loader?lazy!babel-loader!./pages/staticPages/tutorials/Tutorials';
 import Visualize from 'bundle-loader?lazy!babel-loader!./pages/staticPages/visualize/Visualize';
 import AboutUs from 'bundle-loader?lazy!babel-loader!./pages/staticPages/aboutus/AboutUs';
+import UsingDataAccessTokens from 'bundle-loader?lazy!babel-loader!./pages/staticPages/dataAccessTokens/UsingDataAccessTokens';
 import News from 'bundle-loader?lazy!babel-loader!./pages/staticPages/news/News';
 import FAQ from 'bundle-loader?lazy!babel-loader!./pages/staticPages/faq/FAQ';
 import OQL from 'bundle-loader?lazy!babel-loader!./pages/staticPages/oql/OQL';
@@ -111,6 +112,7 @@ export const makeRoutes = (routing) => {
                 <Route path="/tutorials" onEnter={handleEnter} getComponent={lazyLoadComponent(Tutorials)} />
                 <Route path="/visualize" onEnter={()=>{$(document).scrollTop(0)}} getComponent={lazyLoadComponent(Visualize)} />
                 <Route path="/about" onEnter={()=>{$(document).scrollTop(0)}} getComponent={lazyLoadComponent(AboutUs)} />
+                <Route path="/dat" onEnter={()=>{$(document).scrollTop(0)}} getComponent={lazyLoadComponent(UsingDataAccessTokens)} />
                 <Route path="/news" onEnter={handleEnter} getComponent={lazyLoadComponent(News)} />
                 <Route path="/faq" onEnter={handleEnter} getComponent={lazyLoadComponent(FAQ)} />
                 <Route path="/oql" onEnter={handleEnter} getComponent={lazyLoadComponent(OQL)} />

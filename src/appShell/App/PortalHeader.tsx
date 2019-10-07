@@ -82,6 +82,13 @@ export default class PortalHeader extends React.Component<{ appStore:AppStore },
                 internal:true,
                 hide:()=>AppConfig.serverConfig.skin_show_about_tab === false
             },
+            {
+                id:"dat",
+                text:"Using Data Access Tokens",
+                address:"/dat",
+                internal:true,
+                hide:()=>true
+            }
 
         ];
 

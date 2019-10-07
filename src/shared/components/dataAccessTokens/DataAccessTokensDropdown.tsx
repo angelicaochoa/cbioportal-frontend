@@ -9,6 +9,8 @@ import {observable, computed} from "mobx";
 import {buildCBioPortalPageUrl} from "../../api/urls";
 import {isNullOrUndefined} from "util";
 import fileDownload from 'react-file-download';
+import DefaultTooltip from "public-lib/components/defaultTooltip/DefaultTooltip";
+
 
 export class UserDataAccessToken {
     @observable token : string;
@@ -62,7 +64,9 @@ export class DataAccessTokensDropdown extends React.Component<IDataAccessTokensP
             },
             {
                 id:"datDownload",
-                action:<a onClick={() => this.downloadDataAccessTokenFile()}>Download token</a>,
+                action:<DefaultTooltip trigger={["hover"]} placement={"right"} overlay={<span><a href="/dat">Using Data Access Tokens</a></span>}>
+                            <a onClick={() => this.downloadDataAccessTokenFile()}>Download token</a>
+                        </DefaultTooltip>,
                 hide:(AppConfig.serverConfig.authenticationMethod === "social_auth" || (AppConfig.serverConfig.dat_method !== "uuid" && AppConfig.serverConfig.dat_method !== "jwt"))
             }
         ];
