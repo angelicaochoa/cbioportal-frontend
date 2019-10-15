@@ -2,6 +2,8 @@ import * as React from "react";
 import AppConfig from "appConfig";
 import {If, Then, Else} from 'react-if';
 import internalClient from "shared/api/cbioportalInternalClientInstance";
+import { Link } from 'react-router';
+
 import {AppStore} from "../../../AppStore";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 import {observer} from "mobx-react";
@@ -64,9 +66,7 @@ export class DataAccessTokensDropdown extends React.Component<IDataAccessTokensP
             },
             {
                 id:"datDownload",
-                action:<DefaultTooltip trigger={["hover"]} placement={"right"} overlay={<span><a href="/dat">Using Data Access Tokens</a></span>}>
-                            <a onClick={() => this.downloadDataAccessTokenFile()}>Download token</a>
-                        </DefaultTooltip>,
+                action:<Link to="/webAPI#using-data-access-tokens">Download token</Link>,//<a href="/webAPI#using-data-access-tokens">Download token</a>,
                 hide:(AppConfig.serverConfig.authenticationMethod === "social_auth" || (AppConfig.serverConfig.dat_method !== "uuid" && AppConfig.serverConfig.dat_method !== "jwt"))
             }
         ];
