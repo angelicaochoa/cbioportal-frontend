@@ -12,8 +12,7 @@ import {isNullOrUndefined} from "util";
 import fileDownload from 'react-file-download';
 import {AppStore} from "../../../AppStore";
 import LoadingIndicator from "../../../shared/components/loadingIndicator/LoadingIndicator";
-
-
+import getBrowserWindow from "../../../public-lib/lib/getBrowserWindow";
 
 export class UserDataAccessToken {
     @observable token : string;
@@ -41,9 +40,13 @@ function buildDataAccessTokenFileContents(dat:UserDataAccessToken | undefined) {
 }
 
 @observer
-export default class WebAPIPage extends React.Component<{appStore:AppStore}, {}> {
+export default class WebAPIPage extends React.Component<{}, {}> {
+    private get appStore(){
+        return getBrowserWindow().globalStores.appStore;
+    }
+
     async generateNewDataAccessToken() {
-        if (this.props.appStore.isLoggedIn) {
+        if (this.appStore.isLoggedIn) {
             let _token = await Promise.resolve(
                 internalClient.createDataAccessTokenUsingPOST(
                     {'allowRevocationOfOtherTokens':AppConfig.serverConfig.dat_uuid_revoke_other_tokens}))
