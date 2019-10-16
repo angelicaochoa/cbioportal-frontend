@@ -73,9 +73,13 @@ export default class WebAPIPage extends React.Component<{}, {}> {
             return (
                 <div>
                 <a id="using-data-access-tokens" className="anchor_no_style">
-                    <StaticContent sourceUrl={AppConfig.serverConfig.skin_documentation_dat!} title={"Using Data Access Tokens"}/>            
-                    <button className="btn btn-primary btn-sm" onClick={() => this.downloadDataAccessTokenFile()}>Download token</button>
+                    <h2>
+                        Using Data Access Tokens
+                    </h2>
                 </a>
+                <StaticContent sourceUrl={AppConfig.serverConfig.skin_documentation_dat!} title={""}/>            
+                <br />
+                <button className="btn btn-primary btn-sm" onClick={() => this.downloadDataAccessTokenFile()}>Download token</button>
                 </div>
             )
         }
