@@ -43,11 +43,12 @@ export class AppStore {
     }
 
     @computed get logoutUrl() {
-        if (this.authMethod === 'saml') {
-            return 'saml/logout';
-        } else {
-            return 'j_spring_security_logout';
-        }
+	    return 'logout';
+//        if (this.authMethod === 'saml') {
+//            return 'saml/logout';
+//        } else {
+//            return 'j_spring_security_logout';
+//        }
     }
 
     @computed get undismissedSiteErrors() {
